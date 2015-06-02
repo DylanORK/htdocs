@@ -1,0 +1,18 @@
+<style type="text/css">
+
+.menuFlottant{
+
+	position: relative;
+	top: 0px;
+	text-align : center;
+	width: 100%;
+	height: 30px;
+	background-color: black;
+	border : 1px ridge black;
+	
+	list-style-type: none;
+	display : block;
+	float : left;
+	
+}
+</style>

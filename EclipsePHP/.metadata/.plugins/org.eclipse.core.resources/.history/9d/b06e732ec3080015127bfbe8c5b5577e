@@ -1,0 +1,19 @@
+<style type="text/css">
+
+.PannelInconnu li
+{
+list-style-type : none;
+float: left;
+
+
+}
+
+.PetitCarre div
+{
+position:fixed;
+border : 1px solid black;
+border-radius : 5px;
+float:right;
+}
+
+</style>

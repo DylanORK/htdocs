@@ -1,0 +1,33 @@
+<style type="text/css">
+
+
+.couleur0 { background: #899d25; }
+.couleur1 { background: #800f25; }
+.couleur2 { background: #c3ff68; }
+.couleur3 { background: #1693a5; }
+.couleur4 { background: #ad234b; }
+.couleur5 { background: #fbb829; }
+.couleur6 { background: #f4fce8; }
+.couleur7 { background: #7f94b0; }
+.couleur8 { background: #d2e4fc; }
+.couleur9 { background: #e0b5cb; }
+.couleur10 { background: #a662de; }
+.couleur11 { background: #919999; }
+.couleur12 { background: #afcca8; }
+.couleur13 { background: #f5faac; }
+.couleur14 { background: #7d6942; }
+.couleur15 { background: #ffa833; }
+
+
+
+
+<li class="couleur{rand(0,15)}"
+
+
+
+
+
+
+
+
+</style>

@@ -1,0 +1,42 @@
+<style type="text/css">
+
+
+  
+body{
+     /* background:#F7C1C1 ;*/
+     /* background:#ED5D00 ;*/
+      /*background:#00FFFF ;*/
+      background:#1E90FF ;
+      background:#00BFFF;
+      background:#87CEFA;
+  }
+
+  a{
+  text-decoration : none;
+  
+  }
+footer ul 
+{
+
+	list-style-type:none;
+	text-align:center;
+
+	
+}
+footer ul li 
+{
+	display : block;
+	float:left;
+	margin : 0 2px 0 2px;
+		border : 1px solid black;
+}
+
+
+p
+{
+	display : block;
+}
+
+
+
+</style>

@@ -1,0 +1,11 @@
+<style type="text/css">
+
+.PannelInconnu li
+{
+list-style-type : none;
+float:right;
+position:fixed
+
+}
+
+</style>

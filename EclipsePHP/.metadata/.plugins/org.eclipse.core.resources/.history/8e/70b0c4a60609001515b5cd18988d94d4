@@ -1,0 +1,24 @@
+<style type="text/css">
+
+.PannelInconnu li
+{
+list-style-type : none;
+float: left;
+margin-left : 5px;
+text-align : bottom;
+display: block;
+
+
+}
+
+#Carre
+{
+height : 50px;
+position: fixed;
+border : 1px solid black;
+float:right;
+top : 0;
+right : 0;
+}
+
+</style>

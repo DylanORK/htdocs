@@ -1,0 +1,222 @@
+Agatha 0.7.0
+
+Author: Jared Watkins <jared <at-or-about> watkins dot net>
+
+If you like this program.. see my wishlist over at amazon... Anyone who gifts
+me something will have their name added to the Acknowledgments section. 
+Earn your place of glory today. =]
+
+http://www.amazon.com/gp/registry/registry.html/102-4175228-0195360?%5Fencoding=UTF8&id=1J21CZXG6QJ44
+
+http://www.thinkgeek.com/brain/gimme.cgi?wid=81d08db4d
+
+
+
+  Tested with apache 1.3.x and php 4.x under linux.. This program is not 
+  guaranteed to do anything but take up space on your disk..
+
+  Also note that this was designed to be used on a private network
+  I'm sure there are terrible security holes... so treat it accordingly.
+
+
+  INSTALL:  Since you are reading this.. I guess you already unpacked the
+            tar ball... Just move/rename this directory to whatever you like under your
+            apache document root (htdocs) directory and point your browser to it. 
+            All files should be readable by apache.. and the 'playlists' and 
+            'sharedplaylists' directories should be writable by the apache user.
+
+            Copy config.php.dist to config.php and edit your path and
+            language file names. For security purposes.. please note that
+            neither playlists nor mp3s need to be visible by your web server.
+
+      LOCAL PLAY SETUP:
+
+            To use the (very cool) local play features of agatha you will need
+            to install a perl package. This can most easily be done via CPAN with
+            the command (as root):
+
+                   perl -MCPAN -e 'install MP3::Daemon'
+
+            You should also be able to track it down from freshmeat:
+
+                  http://freshmeat.net/projects/mp3-daemon/
+
+            This perl package will also let you play music from the command
+            line.  As a test to verify everything is working.. try the
+            command:
+   
+                     mp3 play song.mp3  
+
+            Where song.mp3 is a file from your drive...  
+
+            If you don't hear anything... but you get no error check the
+            following: 
+                       - Your speakers are hooked up and working
+                       - The linux volume is turned up (run aumix)
+
+            Once it is installed and you have verified that you can play mp3s
+            from the command line.. you need to make a few small changes.
+
+            If it is running.. kill the daemon with:
+
+                     mp3 quit
+
+            Using your favorite text editor.. open up the file /usr/bin/mp3
+            You need to change the location of the socket that the mp3daemon uses
+            to something that agatha can reach... I suggest using /tmp/.mp3 as the new
+            location. Look for the following line near the top.. and change it as
+            I've indicated:
+
+                      FROM:
+                             my $conf_dir = "$ENV{HOME}/.mp3";
+
+                      TO:
+                             my $conf_dir = "/tmp/.mp3";
+
+            Whatever location you use.. you will need to put the same path
+            in the agatha config file.
+
+            There are a few device files in /dev that the apache user will
+            need to have permissions for.  There are many ways this can be
+            done.. I'll list the easiest way here. If you have a need for
+            better security in this regard I'm sure you will know the other
+            ways this can be accomplished.
+
+                 chmod o+r,o+w /dev/mixer
+                 chmod o+r,o+w /dev/dsp
+
+            That's it...  just read through the agatha config file and set a few
+            paths.. there are comments in the file to help you.
+            
+            TROUBLESHOOTING LOCAL PLAY:
+            
+                *TIP* In your rc.local file put aumix -L to load the default
+                      settings for the root user that you saved inside aumix
+                      by hitting 'S'
+                      
+                If agatha is giving you socket read errors.. make sure 
+                the mp3 daemon is running and that the socket is owned
+                by the apache user.  I have tried to automate this.. but it
+                does not always work.  So.. start the daemon as root by 
+                running 'mp3 ls'  then give ownership to apache ex 
+                'chown -R /tmp/.mp3'  Now try reloading agatha.  You
+                should only have to do this once.. until you reboot.
+
+
+
+  Usage: Click the song name to stream.. select several songs and click
+         submit to stream the list. Or.. if 'Add to Playlist' is selected you can add the
+         list of selected songs to a new or existing playlist. Edit the list by clicking
+         on the white icon next to the name. Click the red symbol icon to play on the
+         local server using the perl package mp3daemon.  For recursive play.. click the
+         little folder icons to stream whole directories and the red icons to play on
+         the server. Everything else should be fairly straight forward.
+
+
+
+
+
+ACKNOWLEDGMENTS
+
+Thanks to various people of irc for helping me kick around ideas.
+
+Thanks to all those who have sent in patches, translations or
+suggested improvements.
+
+
+
+I would like to acknowledge the following people for specific contributions
+of cash or goodies:
+
+. . . Your name here . . .
+
+
+
+
+CHANGELOG
+
+
+  04-1-01  Changed directory encodings to base 64... it's not pretty but it was the easiest
+           way to deal with all possible characters in a directory name.
+
+  05-13-01 Fixed the playlist editing function.. you can now remove more than one song without
+           screwing up your playlist.  You can also now remove a playlist from the server.
+
+  05-29-01 Added a configuration switch for the local play feature.. is anyone using this??
+  06-20-01 Added the ability to random play the stored playlists
+  06-24-01 A few requested changes this time...
+           Changed code to display cleaner directory names... and only display those sections for which you have
+           items.. if there are no subdirectorys.. or playlists.. it does not list those blank entries
+           'Select All' does not select the 'add to playlist' check box now.. since it does not actually
+           select all I must (of course) rename it.. I believe in honesty in programming.
+  06-25-01 Added some comments to the code.. that makes it ready for .5
+  09-11-01 Added multi language support -> I need more language files
+  10-12-01 Added js back buttons and tweaked mime types a bit
+  10-14-01 Starting to lern new tricks... stylesheets this time
+           Moved config info to a separate file
+           Ready for 0.5.1
+
+
+  08-11-02  Version 0.6.1 has emerged from the lab!
+            Ok.. a total rewrite was in order.  There are many changes in
+            this version:
+            The playlist 'hole' bug is fixed
+            ID3 Tags are now supported for file names and times
+            Playlists are now tracked by a cookie and not your IP address
+            The program can easily be embeded in another page
+            Help is now included as 'alt' tags.. hover over the help icon
+            Some general code clean-up and added input error checking
+            I still need more language files.. translations please!
+
+  06-19-03  Version 0.6.5 has escaped from my server!
+            A few good changes in this release and lots of false starts
+            and dead ends... fun for me! I've been working on this off and on
+            for many months.. some new features are not quite there yet
+            for various reasons. Still no recursive functions.. I tried
+            I really did.. but to do this I think it's going to require a
+            totally new way of handling the files and paths. I've been
+            trying to come up with a meaningful way to intigrate with
+            a streaming server... to offer ogg wma or other formats.. no
+            go just yet though.. it all seems rather kludgy.
+
+            - Fixed the cookie bug that popped up with some browsers
+
+            * Shared playlists - You can optionally share your private
+              playlists with the world. This is the big new feature.
+
+            * If a subdirectory contains only one other subdirectory it
+              will jump directly to it without a second click
+
+            * You can now choose via a config option.. how much id3 data you
+              want displayed. Either track times.. titles.. both or neither.
+              The default is to pull track times.. but use filenames for
+              song titles. If you pull titles from ID3 tags and a particular
+              file does not have a title stored.. it will use the mangled
+              file name instead.
+
+  05-23-04  Version 0.7 has jumped me from behind and made off with my girl!
+            Well after a healthy siesta and the discovery mp3daemon I am back!
+            This version re introduces the 'play on server' support I got so
+            many requests for.. only now it's done up properly.  Also in this
+            version are a few recursive play options... in the end it did
+            require totally changing the way I passed around path data.
+            Externally those are the only two changes... but those two required
+            a lot of work behind the scenes
+
+  04-08-06  Version 0.7.1 was lost and presumed dead only to resurface at a
+            bar in Tijuana!  Fixed a few small bugs related to the local
+            play feature in this version.  Agatha has always been my sandbox
+            and next up may be using Ajax for local play instead of constant
+            frame reloads. 
+
+  05-10-06  Version 0.7.2 Small bugfixs 
+            * Mp3 file extensions are now case-insensitive... why didn't I
+              catch this one earlier??
+
+            * Fixed a bug where playing recursive directories from other
+              than the top level would fail. 
+
+  05-10-06  Version 0.7.3 Wow the same day!
+            * Fixed a new but that resulted from the recursive fix.. now
+              playing from multiple selection works again. 
+

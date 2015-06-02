@@ -1,0 +1,7 @@
+INDEX VERSION 1.3+C:\xampp\htdocs\EclipsePHP\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1471305201.index
+3852674335.index
+96226093.index
+2840625185.index
+3503537664.index
+3331935074.index

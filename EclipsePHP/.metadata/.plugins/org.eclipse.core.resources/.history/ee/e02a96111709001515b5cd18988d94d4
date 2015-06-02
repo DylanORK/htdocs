@@ -1,0 +1,41 @@
+<style type="text/css">
+
+ul.PannelInconnu
+{
+padding :0px;
+}
+
+
+.PannelInconnu li
+{
+list-style-type : none;
+float: left;
+margin : 0px 3px;
+text-align : center;
+vertical-align: text-bottom;
+
+}
+
+.PannelInconnu li a
+{
+display : block;
+color : #22d1ed	;
+
+}
+
+#Carre
+{
+
+background-color : #f8de7e;
+height : 50px;
+position: fixed;
+border : 1px solid black;
+float:right;
+top : 10px;
+right : 0;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+</style>

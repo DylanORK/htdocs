@@ -1,0 +1,18 @@
+/*
+  var ul = document.getElementByclass("Progres");
+var items = ul.getElementsByTagName("li");
+for (var i = 0; i < items.length; ++i) {
+  // do something with items[i], which is a <li> element
+	
+	
+}
+*/
+
+
+$('.Progres').click(function() {
+  //  $('.menuitem').removeClass('active');
+    //removes active class from all menu items
+
+    $(this).addClass('couleur'+Math.floor((Math.random() * 15) + 1));
+    //adds active class to clicked one
+});

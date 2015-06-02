@@ -1,0 +1,21 @@
+<style type="text/css">
+
+.PannelInconnu li
+{
+list-style-type : none;
+float: left;
+margin-left : 5px;
+
+
+}
+
+div
+{
+position:absolute;
+border : 1px solid black;
+float:right;
+top : 0;
+left : 60;
+}
+
+</style>

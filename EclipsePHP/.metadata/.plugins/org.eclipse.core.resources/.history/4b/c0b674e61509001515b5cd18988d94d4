@@ -1,0 +1,43 @@
+<style type="text/css">
+/*
+.menuFlottant{
+
+	position: relative;
+	top: 0px;
+	text-align : center;
+	width: 100%;
+	height: 30px;
+	background-color: black;
+	border : 1px ridge black;
+	
+
+}
+
+.menuFlottant {
+	list-style-type: none;
+	display : block;
+	float : left;
+	}
+	*/
+	
+	
+.menuFlottant {
+ padding:0;
+ margin:0;
+ list-style-type:none;
+ }
+li {
+ margin-left:2px;
+ float:left; /*pour IE*/
+ }
+ul li a {
+ display:block;
+ float:left;   
+ width:100px;
+ background-color:#6495ED;
+ color:black;
+ text-decoration:none;
+ text-align:center;
+ padding:5px;
+ border:2px solid;
+</style>

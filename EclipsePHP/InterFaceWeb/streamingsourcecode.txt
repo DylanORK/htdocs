@@ -1,0 +1,51 @@
+<?php
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Video Streaming PHP Script using MySQL database By: Codex-m
+//Website: http://www.php-developer.org
+//License: Open source 
+//Link to the developer website is highly appreciated, thanks.
+//Revision 1.0 February 4, 2011 Use absolute server path to the video file 
+//instead of http://www.example.com/videofolder/video.mpg in the PHP read file function
+//Refer to this documentation for details: http://www.php-developer.org/videostreaming.php
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Validate text input
+if (! preg_match('/^[-a-z.-@,\'\s]*$/i',$_GET['ID']))
+{
+  die('Invalid name proved, the name may only contain a-z, A-Z, 0-9, "-", "_" and spaces.');
+}
+else
+  $empty=strlen($_GET['ID']);
+if ($empty==0)
+{
+  die('The text field cannot be empty');
+}
+else
+{
+   //the input data is clean, retrieve text data input
+   $ID = $_GET['ID'];
+}
+include '/home/absolutepath/to/yourdatabaseconnectionscript.php';
+//Escape variables for use in MySQL
+$ID = mysql_real_escape_string(stripslashes($ID));
+//sending query
+//your realurl field name in MySQL should follow the correct format as stated here:http://www.php-developer.org/videostreaming.php 
+$result = mysql_query("SELECT `realurl` FROM `videostreaming` WHERE `id`='$ID'")
+or die(mysql_error());
+// store the record into $row
+$row = mysql_fetch_array( $result )
+or die("Invalid query: " . mysql_error());
+// Print out the contents of the entry
+$direction = $row['realurl'];
+//close the connection
+//change the path to use absolute server path, revised on February 4, 2011
+$path=$direction;
+header('Content-type: video/mpeg');
+//2015236 is the exact file size of the video, change it to according to your video file size
+header('Content-Length: 2015236');
+header("Expires: -1");
+header("Cache-Control: no-store, no-cache, must-revalidate");
+header("Cache-Control: post-check=0, pre-check=0", false);
+readfile($path);
+mysql_close($dbhandle);
+?>

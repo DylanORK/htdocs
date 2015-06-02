@@ -1,0 +1,9 @@
+<style type="text/css">
+
+.PannelInconnu li
+{
+list-style-type : none;
+
+}
+
+</style>

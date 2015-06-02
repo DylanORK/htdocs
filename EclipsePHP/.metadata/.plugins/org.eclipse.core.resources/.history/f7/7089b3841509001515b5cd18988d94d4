@@ -1,0 +1,20 @@
+<!-- <?php require("Style/Style-css.php"); ?>-->
+<?php require("Style/Style-Entete.php"); ?> 
+<div class="header">
+
+<ul class="MenuFlottant">
+			<li><a href="index.php">Home</a></li>
+            <li><a href="entete.php">Lien entete</a></li>
+            <li><a href="Pied_De_Page.php">Lien footer</a></li>
+            <li><a href="Bonjour.php">Dire Bonjour</a></li>
+            <li><a href="Connexion.php">Se connecter</a></li>
+            <li><a href="Inscription.php">S'inscrire</a></li>
+            <li><a href="TestsBDD.php">Tester la base de donnée</a></li>
+            <li><a href="Proposition.php">Boite a idée</a></li>
+            <li><a href="Minichat.php">Projet OpenClassroom : Chat</a></li>
+            <li><a href="Blog.php">Exemple de Blog</a></li>
+            <li><a href="Musique.php">Test lecteurs musicaux</a></li>
+</ul>
+			<br>
+
+</div>

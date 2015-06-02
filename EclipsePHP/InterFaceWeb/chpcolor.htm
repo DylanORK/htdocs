@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>Tout JavaScript.com : Champ de saisie de couleurs</TITLE>
+
+<SCRIPT language=javascript>
+	//D'autres scripts sur http://www.toutjavascript.com
+	//Si vous utilisez ce script, merci de m'avertir !
+	function TJS_PrintChoixColor(nom, color) {
+		document.write("<TABLE border=0><TR><TD><INPUT type=text name='"+nom+"' value='"+color+"' onChange=\"TJS_EditBGColor('"+nom+"', this.value)\" style='width:100px;font-family:arial;font-size:12px'></TD>");
+		document.write("<TD><DIV id='divcolor"+nom+"' style='position:relative;width:50px;height:20px;border-color:black;border-style:solid;border-width:1px;background-color:"+color+"'>&nbsp;</DIV></TD></TR></TABLE>");
+	}
+	function TJS_EditBGColor(nom, color) {
+		if (document.getElementById) {
+			if (document.getElementById("divcolor"+nom).style.backgroundColor = color) {}
+		}
+		if (document.all) {
+			if (document.all["divcolor"+nom].style.backgroundColor = color) {}
+		}
+		if (document.layers) {
+			if (document.layers["divcolor"+nom].style.backgroundColor = color) {}
+		}
+	}
+</SCRIPT>
+</HEAD>
+<BODY>
+<FONT face=arial color=navy size=2>
+<BIG><B><CENTER>Champ de saisie de couleurs</CENTER></B></BIG>
+<BR>
+Ce script permet de créer des champs de saisie avec indicateur de couleurs avec une seule ligne de code du type :<BR>
+<PRE>&lt;SCRIPT language=javascript>TJS_PrintChoixColor("fond","red");&lt;/SCRIPT></PRE>
+Cette fonction crée un champ texte appelé <I>fond</I> avec la couleur prédéfinie <I>red</I>.<BR>
+Vous pouvez créer autant de champs que vous voulez dans une page.<BR>
+<BR>
+<FORM>
+	<TABLE>
+	<TR>
+		<TD><FONT face=arial size=2>Couleur de fond</FONT></TD>
+		<TD><SCRIPT language=javascript>TJS_PrintChoixColor("fond","red");</SCRIPT></TD>
+	</TR>
+	<TR>
+		<TD><FONT face=arial size=2>Couleur de contour</FONT></TD>
+		<TD><SCRIPT language=javascript>TJS_PrintChoixColor("contour","orange");</SCRIPT></TD>
+	</TR>
+	<TR>
+		<TD><FONT face=arial size=2>Couleur des titre</FONT></TD>
+		<TD><SCRIPT language=javascript>TJS_PrintChoixColor("texte","navy");</SCRIPT></TD>
+	</TR>
+	<TR>
+		<TD><FONT face=arial size=2>Couleur des textes</FONT></TD>
+		<TD><SCRIPT language=javascript>TJS_PrintChoixColor("ombre","#CCCCCC");</SCRIPT></TD>
+	</TR>
+	</TABLE>
+</FORM>
+
+<BR><BR><BR><BR><BR><BR><BR>
+<CENTER>
+<A href="http://www.toutjavascript.com" target="_blank"><FONT size=1 color=#CCCCFF>Tout JavaScript.com</FONT></A>
+</CENTER>
+</FONT>
+</BODY>
+</HTML>
+<!-- Script développé par http://www.toutjavascript.com             -->

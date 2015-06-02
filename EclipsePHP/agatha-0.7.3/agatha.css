@@ -1,0 +1,87 @@
+body {
+font-family: Verdana,Helvettica,Arial, sans-serif;
+font-size: small;
+color: #ffffff;
+background-color: #000000;
+text-align: left;
+}
+
+select, option {
+background: #000000;
+background-color: #000000;
+color: #00ff00;
+font-family: Verdana,Helvettica,Arial, sans-serif;
+font-size: small;
+}
+
+:link {
+color: #00ff00;
+background-color: #000000;
+text-decoration: none;
+}
+
+:visited {
+color: #00ff00;
+background-color: #000000;
+text-decoration: none;
+}
+
+:hover {
+color: #ffffff;
+text-decoration: none;
+background-color: #000000;
+}
+
+div.category {
+margin-top: +1em;
+margin-bottom: +1em;
+margin-left: 0em;
+}
+
+div.directory {
+margin-left: +2em;
+}
+
+div.song {
+margin-left: +2em;
+}
+
+div.playlist {
+margin-left: +2em;
+}
+
+div.control {
+margin-left: +2em;
+margin-top: +1em;
+width: 20em;
+}
+
+div.error {
+color: #ff0000;
+background-color: #000000;
+font-weight: bolder;
+}
+
+div.dirnav {
+color: #ffffff;
+background-color: #000000;
+font-weight: bolder;
+text-align: right;
+}
+
+#layer_dirnav {
+position: relative;
+top: 0pix;
+float: right;
+}
+
+div.logo {
+background-color: #000000;
+}
+
+#layer_logo {
+position: relative;
+left: 0;
+top: 25px;
+float: right;
+}

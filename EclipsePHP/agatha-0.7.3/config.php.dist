@@ -1,0 +1,76 @@
+<?
+# CONFIG SECTION --------------------------------------------------------------------
+
+define ("BASE_DIR", "/mnt/data/music");                          ### <- The top level with your music NO trailing slash
+define ("PLAYLIST_DIR", "/usr/local/etc/agatha/playlists/");     ### <- Must have a trailing slash
+define ("SHAREDPLAYLIST_DIR", PLAYLIST_DIR."sharedplaylists/");  ### <- Must have a trailing slash
+
+$CONFIG["option_local_play"] = FALSE;                             ### TRUE or FALSE
+define ("LOCAL_PLAY_SOCKET", "unix:///tmp/.mp3/mp3_socket");     ### Need to modify /usr/bin/mp3 See README unix://
+define ("AUMIX_BIN", "/usr/bin/aumix");                          ### Be sure /dev/mixer is writable by apache
+
+$CONFIG["option_language"] = "agatha-us-en.php";   ### <- Select your language file or go with the default
+
+$CONFIG["request_method"] = "http://";             ### There is no way to detect this or https =\
+
+define ("DISPLAY_LOGO", TRUE);                     ### TRUE or FALSE
+
+$CONFIG["id3"] = 1;                                ### <- Use ID3 Tags for main display  (0, 1 or 2)
+                                                   ### 0= No ID3 Tags, = Song Times Only, 2= Times and Titles
+
+$CONFIG["jump_time"] = 10;                         ### How much (in seconds) to FF and RW when you click those buttons
+
+## END CONFIG SECTION ----------------------------------------------------------------
+
+#
+##   Everything Below this line is experimental.. and may not be totally
+##   working.. or even working at all.
+#
+
+# This alternate streaming method was borrowed from kplaylist.. it sorta works
+# but I have seen problems with high bit rate mp3s... I think that problem is related
+# to VBR mp3s and the rate not being reported correctly by the id3 library?
+# The plan is to get it working and then be able to stream formats other than
+# just mp3.. we shall see...
+
+$CONFIG["use_alternate_streaming"] = false;
+$CONFIG["prebuffer"] = 28000;
+$CONFIG["buffer"] = 500;
+$CONFIG["precision"] = 1000; // in ms
+$CONFIG["sleeptime"] = 0.999;
+
+define ('DEBUG', false);
+
+# In an earlier unreleased attempt at adding the local play feature.. I wrote a class
+# that talks to a telnet daemon plugin to winamp2... giving you full play control
+# over winamp on some network reachable windows box from within agatha.
+# Unfortunately.. according to the developer of that plugin the source code was lost
+# and they had no plans to update it for newer versions of winamp... so I never pursued
+# an agatha release that would support it.  I still have the code.. and it could be
+# easily turned into a working solution if anyone wants it.
+
+$CONFIG["winamp_server1"] = "192.168.1.70";         ###
+$CONFIG["winamp_server2"] = "192.168.1.70";         ###
+$CONFIG["winamp_username"] = "admin";               ###
+$CONFIG["winamp_password"] = "password";            ###
+
+#$CONFIG["use_alternate_stream_server"] = false;
+#$CONFIG["alternate_stream_server_name"] = "some.other.server.com";
+#$CONFIG["alternate_stream_server_port"] = "88";
+
+$CONFIG["embeded"] = 0;                            ### Use if you are embeding agatha into another page.
+
+# The proper mime type for ogg files seems to be in flux at the moment.. so
+# here are some options.
+
+#$MIME_TYPES["ogg"]        = "Content-Type: audio/ogg-vorbis";
+#$MIME_TYPES["ogg"]        = "Content-Type: application/(x-)ogg";
+$MIME_TYPES["ogg"]        = "Content-Type: audio/ogg";
+
+$MIME_TYPES["mp3"]        = "Content-Type: audio/x-mpeg";
+$MIME_TYPES["wav"]        = "Content-Type: audio/x-wav";
+$MIME_TYPES["ra"]         = "Content-Type: application/x-pn-realaudio";
+$MIME_TYPES["ram"]        = "Content-Type: application/x-pn-realaudio";
+$MIME_TYPES["mid"]        = "Content-Type: x-music/x-midi";
+
+?>
