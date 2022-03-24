@@ -8,12 +8,6 @@
         require ("Entete.php");
         ?>
     </head>
-    <style>
-    form
-    {
-        text-align:center;
-    }
-    </style>
     <body>
     
     <form action="MinichatPost.php" method="post">
